@@ -7,10 +7,15 @@ authors = [
     { name = "hemboorglur", email = "zeemannoah@gmail.com" }
 ]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "click>=8.5.1",
+    "matplotlib>=3.10.9",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+]
 
 [project.scripts]
-nsp2 = "nsp2:main"
+nsp2 = "nsp2.analysis:cmd_group"
 
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14.0"]
