@@ -1,5 +1,5 @@
-# import matplotlib
-# matplotlib.use("WebAgg")
+import matplotlib
+matplotlib.use("WebAgg")
 
 from copy import copy
 
@@ -413,7 +413,8 @@ class plot():
            
     def plot_E_kin(self):
         plt.figure()
-        plt.scatter(self.data.mid_time(), self.data.E_kin(), s=1)
+        plt.scatter(self.data.mid_time(), self.data.E_kin(), s= 1)
+        plt.yscale("log")
 
         plt.xlabel("Time (s)")
         plt.ylabel("Kinetic energy (J)")
@@ -527,17 +528,23 @@ class plot():
             
         
     
-            
-if __name__ == "__main__":
-    metingen= []
-    for bestand in sorted(data_folder().glob("Basler*_*-meting*.mqa")):
-        if bestand.stem.endswith("_TSV"):  # tweede export van dezelfde opname
-            continue
-        meting= calculations(bestand)
-        metingen.append(meting)
-        graphs= plot(meting)
-        graphs.plot_P1()
-        graphs.plot_E_cm_met_drag()
+# if __name__ == "__main__":
+#     metingen= []
+#     for bestand in sorted(data_folder().glob("Basler*_nov25-meting1.mqa")):
+#         if bestand.stem.endswith("_TSV"):  # tweede export van dezelfde opname
+#             continue
+#         meting= calculations(bestand)
+#         metingen.append(meting)
+#         graphs= plot(meting)
+#         #graphs.plot_P1()
+#         graphs.plot_E_cm_met_drag()
 
-    sigma= plot.plot_afwijkingen(metingen)
-    print(sigma)
+#     sigma= plot.plot_afwijkingen(metingen)
+#     print(sigma)
+
+
+if __name__ == "__main__":
+    bestand = "Basler_a2A2464_25nov-meting2.mqa"
+    meting = calculations(bestand)
+    graphs = plot(meting)
+    graphs.plot_E_kin()
