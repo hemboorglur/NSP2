@@ -6,3 +6,5 @@ __pycache__/
 .ipynb_checkpoints/
 *.bundle
 .DS_Store
+/logbook_entries
+
